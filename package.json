@@ -1,5 +1,5 @@
 {
-  "name": "astro-neon-auth",
+  "name": "astro-lucia-auth-neon-postgres",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,7 +11,25 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/node": "^7.0.4",
+    "@astrojs/react": "^3.0.9",
+    "@astrojs/vercel": "^6.1.4",
+    "@lucia-auth/adapter-prisma": "^3.0.2",
+    "@neondatabase/serverless": "^0.6.1",
+    "@prisma/adapter-neon": "^5.8.0",
+    "@prisma/client": "^5.8.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
     "astro": "^4.1.2",
-    "typescript": "^5.3.3"
+    "dotenv": "^16.3.1",
+    "lucia": "^2.7.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.10",
+    "prisma": "^5.8.0"
   }
 }
