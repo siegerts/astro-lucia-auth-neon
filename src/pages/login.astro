@@ -36,9 +36,6 @@ if (Astro.request.method === "POST") {
         attributes: {},
       });
 
-      console.log("Logged in as", key.userId);
-      console.log("Session", session);
-
       Astro.locals.auth.setSession(session); // set session cookie
 
       return Astro.redirect("/", 302); // redirect to profile page

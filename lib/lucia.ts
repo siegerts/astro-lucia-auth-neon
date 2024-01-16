@@ -7,7 +7,7 @@ import sql from "./prisma";
 export const auth = lucia({
   adapter: prisma(sql),
   middleware: astro(),
-  env: "DEV" as Env,
+  env: import.meta.env.PROD ? "PROD" : "DEV",
   getUserAttributes: (data) => {
     return {
       username: data.username,
