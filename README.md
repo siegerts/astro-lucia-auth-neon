@@ -94,9 +94,9 @@ npx prisma db push
 pnpm dev
 ```
 
-## A Postgres Database Branch for each environment
+## A Postgres Database for each environment
 
-To use a different database branch for each environment (dev / prod). Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the database branch connection URL.
+To use a different [Neon project branch](https://neon.tech/docs/introduction/branching) for each environment (dev / prod). Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the branch connection URL.
 
 An example of this architecture is below. The Neon Project has a database (1 or more) and each branch is derived from that database. Each one of those branches maps to the development environment for the app.
 
