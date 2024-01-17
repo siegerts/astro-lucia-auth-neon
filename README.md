@@ -96,9 +96,13 @@ pnpm dev
 
 ## A Database branch for each environment
 
-To use a different [Neon project branch](https://neon.tech/docs/introduction/branching) for each environment (dev / prod). Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the branch connection URL.
+To isolate data sources between environments, create a different [database branch]((https://neon.tech/docs/introduction/branching) for each environment.
 
-An example of this architecture is below. The Neon Project has a database (1 or more) and each branch is derived from that database. Each one of those branches maps to the development environment for the app.
+Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the branch connection URL.
+
+The Neon Project has a database (1 or more) and each branch is derived from that database branch. Each one of the branches maps to the development environment for the app. Or, new database changes can be tested on lower schemas before applying the stable environments (prod, etc).
+
+This
 
 ```mermaid
 
