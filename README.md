@@ -96,7 +96,7 @@ pnpm dev
 
 ## A Database branch for each environment
 
-To isolate data sources between environments, create a different [database branch]((https://neon.tech/docs/introduction/branching) for each environment.
+To isolate data sources between environments, create a different [database branch](https://neon.tech/docs/introduction/branching) for each environment.
 
 Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the branch connection URL.
 
