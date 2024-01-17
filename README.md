@@ -102,8 +102,6 @@ Create a corresponding environment variable dotenv file (`.env.development` or `
 
 The Neon Project has a database (1 or more) and each branch is derived from that database branch. Each one of the branches maps to the development environment for the app. Or, new database changes can be tested on lower schemas before applying the stable environments (prod, etc).
 
-This
-
 ```mermaid
 
 graph TD
@@ -116,17 +114,17 @@ graph TD
         end
     end
 
-    subgraph dev [Development]
+    subgraph dev [Development Environment]
         dev_git[Git: Dev Branch]
         dev_subdomain[Subdomain: dev.example.com]
     end
 
-    subgraph test [Testing]
+    subgraph test [Testing Environment]
         test_git[Git: Test Branch]
         test_subdomain[Subdomain: test.example.com]
     end
 
-    subgraph prod [Production]
+    subgraph prod [Production Environment]
         prod_git[Git: Prod Branch]
         prod_subdomain[Subdomain: example.com]
     end
