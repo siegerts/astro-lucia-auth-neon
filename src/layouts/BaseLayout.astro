@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const session = await Astro.locals.auth.validate();
+
+import "@/src/styles/globals.css";
+import { Button, buttonVariants } from "@/src/components/ui/Button";
+import { TableIcon } from "@radix-ui/react-icons";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="container z-40 bg-background">
+        <nav class="flex h-20 items-center justify-between py-6">
+          <ul class="flex space-x-6">
+            <li>
+              <a href="/">Home</a>
+            </li>
+          </ul>
+          <div>
+            {
+              session ? (
+                <>
+                  <form method="POST" action="/api/logout">
+                    <Button type="submit" variant={"ghost"}>
+                      Sign out
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <a
+                  href="/login"
+                  class:list={[
+                    buttonVariants({ variant: "secondary", size: "sm" }),
+                    "px-4",
+                  ]}
+                >
+                  Login
+                </a>
+              )
+            }
+          </div>
+        </nav>
+      </header>
+      <main class="flex-1 mt-4"><slot /></main>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,8 @@
-# Astro Starter Kit + Lucia Auth + Neon Serverless Postgres with Prisma
+# Astro + Lucia Auth + Neon Serverless Postgres with Prisma + shadcn/ui
 
-This project uses the Astro StarterKit configured with [Lucia Auth](https://lucia-auth.com/) + Prisma with [Neon Postgres](https://neon.tech) as the database. The database can be used for queries and data fetching outside of the Auth mechanisms too.
+This starter uses the Astro StarterKit set up with [Lucia Auth](https://lucia-auth.com/), Prisma with [Neon Postgres](https://neon.tech) as the database, and Tailwind with [shadcn/ui](https://ui.shadcn.com/). The database can be used for queries and data fetching outside of the Auth mechanisms too.
+
+![auth screenshot](auth-screenshot.png)
 
 The [serverless driver](https://github.com/neondatabase/serverless) is used for Neon Postgres. This is integrated with Prisma via the `previewFeatures = ["driverAdapters"]` in the `schema.prisma` file. The Prisma Client setup is located in `./lib/prisma.ts`.
 
@@ -24,6 +26,8 @@ if (process.env.NODE_ENV === "development") (global as any).sql = sql;
 
 export default sql;
 ```
+
+<small>Reference: [Connect from Prisma to Neon](https://neon.tech/docs/guides/prisma)</small>
 
 ## Project Structure
 

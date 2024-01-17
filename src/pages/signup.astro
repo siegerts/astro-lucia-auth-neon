@@ -1,5 +1,5 @@
 ---
-// import "../app.css";
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
 
 import { auth } from "../../lib/lucia";
 
@@ -61,26 +61,47 @@ if (Astro.request.method === "POST") {
 
 const session = await Astro.locals.auth.validate();
 if (session) return Astro.redirect("/", 302); // redirect to profile page
+
+import { Input } from "@/src/components/ui/Input";
+import { Button } from "@/src/components/ui/Button";
+import { Label } from "@/src/components/ui/Label";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Username & password auth with Lucia</title>
-  </head>
-  <body>
-    <h1>Sign up</h1>
-    <form method="post">
-      <label for="username">Username</label>
-      <input name="username" id="username" value={usernameInput} /><br />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" /><br />
-      <input type="submit" />
+<BaseLayout title="Sign up">
+  <div
+    class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]"
+  >
+    <div class="flex flex-col space-y-2 text-center">
+      <h1 class="text-2xl font-semibold tracking-tight">Create an account</h1>
+      <p class="text-sm text-muted-foreground">
+        Sign in to create your account
+      </p>
+    </div>
+
+    <form class="mt-2" method="post">
+      <Label htmlFor="username">Username</Label>
+      <Input name="username" id="username" /><br />
+      <Label htmlFor="password">Password</Label>
+      <Input type="password" name="password" id="password" /><br />
+
+      <Button className="w-full" type="submit">Sign in</Button>
+      <p class="error">{errorMessage}</p>
+      <p class="text-sm text-muted-foreground mt-4">
+        Already have an account?{" "}
+        <a href="/login">Sign in</a>
+      </p>
     </form>
-    <p class="error">{errorMessage}</p>
-    <a href="/login">Sign in</a>
-  </body>
-</html>
+
+    <p class="px-8 text-center text-sm text-muted-foreground">
+      By clicking continue, you agree to our{" "}
+      <a href="/terms" class="hover:text-brand underline underline-offset-4">
+        Terms of Service
+      </a>{" "}
+      and{" "}
+      <a href="/privacy" class="hover:text-brand underline underline-offset-4">
+        Privacy Policy
+      </a>
+      .
+    </p>
+  </div>
+</BaseLayout>
