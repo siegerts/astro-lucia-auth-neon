@@ -62,9 +62,9 @@ if (Astro.request.method === "POST") {
 const session = await Astro.locals.auth.validate();
 if (session) return Astro.redirect("/", 302); // redirect to profile page
 
-import { Input } from "@/src/components/ui/Input";
-import { Button } from "@/src/components/ui/Button";
-import { Label } from "@/src/components/ui/Label";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
+import { Label } from "@/src/components/ui/label";
 ---
 
 <BaseLayout title="Sign up">
