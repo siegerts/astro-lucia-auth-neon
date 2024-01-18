@@ -60,9 +60,14 @@ Inside of your Astro project, you'll see the following folders and files:
 
 ### Protected API Route
 
-The `/api/hello-protected` API route is an example of using restricting API access with Auth.
+The `/api/hello-protected` API route is an example of restricting API access with the Auth session.
 
 ## Getting Started
+
+- Sign up to [Neon](https://neon.tech/).
+- Follow our [Create your first project](https://neon.tech/docs/get-started-with-neon/setting-up-a-project) guide.
+
+### Development environment
 
 1. Install the dependencies:
 
@@ -70,10 +75,10 @@ The `/api/hello-protected` API route is an example of using restricting API acce
 pnpm install
 ```
 
-2. Add your Neon Postgres database URL as an Environment Variable
+2. Add your Neon Postgres database URL as an Environment Variable in `.env`
 
 ```
-DATABASE_URL="<>"
+DATABASE_URL=""
 ```
 
 3. Generate the Prisma Client
@@ -82,7 +87,7 @@ DATABASE_URL="<>"
 npx prisma generate
 ```
 
-4. Push the schema to your database. Now, the table structure is reflected in your Neon database.
+4. Push the schema to your database. Now, the table structure is reflected in your Neon database. This is a minimal schema used by Lucia.
 
 ```
 npx prisma db push
@@ -100,7 +105,7 @@ To isolate data sources between environments, create a different [database branc
 
 Create a corresponding environment variable dotenv file (`.env.development` or `.env.production`) with the branch connection URL.
 
-The Neon Project has a database (1 or more) and each branch is derived from that database branch. Each one of the branches maps to the development environment for the app. Or, new database changes can be tested on lower schemas before applying the stable environments (prod, etc).
+The Neon Project has a database (1 or more) and each branch is derived from that database branch. Each one of the branches maps to the development environment for the app. Or, new database changes can be tested on lower environment schemas before applying the stable environments (i.e. prod).
 
 ```mermaid
 
@@ -144,7 +149,7 @@ graph TD
 
 ## Deploy
 
-- This is configured to deploy on Vercel.
+- This is configured to deploy on Vercel in `astro.config.mjs`.
 
 Adjust the build command so that the Prisma Client is regenerated during CI/CD.
 
