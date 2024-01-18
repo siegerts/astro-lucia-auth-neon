@@ -1,6 +1,6 @@
 # Astro + Lucia Auth + Neon Serverless Postgres with Prisma + shadcn/ui
 
-This starter uses the [Astro StarterKit](https://astro.build/) set up with [Lucia Auth](https://lucia-auth.com/), Prisma with [Neon Postgres](https://neon.tech) as the database, and Tailwind with [shadcn/ui](https://ui.shadcn.com/). The database can be used for queries and data fetching outside of the Auth mechanisms too.
+This starter uses the [Astro StarterKit](https://astro.build/) set up with [Lucia Auth](https://lucia-auth.com/) (username and password), Prisma with [Neon Postgres](https://neon.tech) as the database, and Tailwind with [shadcn/ui](https://ui.shadcn.com/). The database can be used for queries and data fetching outside of the Auth mechanisms too.
 
 ![auth screenshot](auth-screenshot.png)
 
