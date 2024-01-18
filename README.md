@@ -144,5 +144,12 @@ graph TD
 
 ## Deploy
 
-- This is configured to deploy on Vercel
+- This is configured to deploy on Vercel.
+
+Adjust the build command so that the Prisma Client is regenerated during CI/CD.
+
+```
+prisma generate && astro build
+```
+
 - Additional [Astro Deployment Guides](https://docs.astro.build/en/guides/deploy/)
