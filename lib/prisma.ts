@@ -11,8 +11,12 @@ const connectionString = `${process.env.DATABASE_URL}`;
 const pool = new Pool({ connectionString });
 const adapter = new PrismaNeon(pool);
 
-let sql = (global as any).sql || new PrismaClient({ adapter });
+declare global {
+  var sql: PrismaClient | undefined;
+}
 
-if (process.env.NODE_ENV === "development") (global as any).sql = sql;
+const sql = globalThis.sql || new PrismaClient({ adapter });
+
+if (process.env.NODE_ENV !== "production") globalThis.sql = sql;
 
 export default sql;
